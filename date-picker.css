@@ -1,0 +1,163 @@
+:root
+{
+    --date-picker-border-color: #dedede;
+    --date-picker-button-fill: #ffffff;
+    --date-picker-button-hover: #dedede;
+    --date-picker-button-text-color-lark: #444444;
+    --date-picker-button-text-color-light: #888888;
+    --date-picker-button-active-fill: #cceecc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Container for the whole Date Picker Module */
+#date-picker
+{
+    width: max(256px);
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--date-picker-border-color);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Date Picker header. Contains the information for the current selected date and time */
+#date-picker-header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 8px auto 0px auto;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#date-picker-header div p:last-of-type
+{
+    margin-top: 8px auto 0 auto;
+}
+
+
+
+/* Contains the basic controls for changing the date */
+#date-picker-nav
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: row;
+    gap: 4px;
+    margin: auto;
+}
+
+#date-picker-nav *
+{
+    height: min(32px);
+}
+
+/* Date Picker button styles */
+#date-picker button
+{
+    border: 0;
+    border-radius: 4px;
+    background-color: var(--date-picker-button-fill);
+    color: var(--date-picker-button-text-color-lark);
+    width: auto;
+    font-weight: bold;
+}
+
+#date-picker button:not(button:disabled):hover
+{
+    background-color: var(--date-picker-button-hover);
+}
+
+#date-picker-days button, #days-of-week button
+{
+    width: 100%;
+    height: auto;
+}
+
+#date-picker-days button[disabled]
+{
+    opacity: 0;
+}
+
+
+.active-day
+{
+    background-color: var(--date-picker-button-active-fill) !important;
+    color: #000000;
+}
+
+
+
+/* Date Picker select styles */
+#date-picker select
+{
+    text-align: center;
+    border: 2px solid var(--date-picker-border-color);
+    border-radius: 4px;
+    background-color: var(--date-picker-button-fill);
+}
+
+#date-picker select:focus
+{
+    background-color: var(--date-picker-button-active-fill);
+}
+
+#date-picker select option
+{
+    background-color: #ffffff;
+}
+
+#date-picker select option:hover
+{
+    background-color: red !important;
+    color: red;
+}
+/* Days of week */
+#days-of-week
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid var(--date-picker-border-color);
+}
+
+#days-of-week button
+{
+    background: none;
+    border-radius: 0;
+    height: auto;
+    aspect-ratio: 2/1;
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+#days-of-week button:first-of-type
+{
+    border-radius: 4px 0 0 4px;
+}
+
+#days-of-week button:last-of-type
+{
+    border-radius: 0 4px 4px 0;
+}
+
+/* Day selection grid */
+#date-picker-days
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-top: 4px;
+}
+
+#date-picker-days button
+{
+    aspect-ratio: 1/1;
+}
